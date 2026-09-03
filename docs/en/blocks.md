@@ -8,8 +8,8 @@ The built-in blocks are enough for most sites. When they are not — a timetable
 
 There are two kinds:
 
-- **HTML** — a template the server renders. The recommended path: fast, works without JavaScript, and [pairs with htmx](/yulia/en/htmx/).
-- **[Svelte](/yulia/en/svelte/)** — a real component, for when you need substantial logic in the browser.
+- **HTML** — a template the server renders. The recommended path: fast, works without JavaScript, and [pairs with htmx](/YuliaCMS/en/htmx/).
+- **[Svelte](/YuliaCMS/en/svelte/)** — a real component, for when you need substantial logic in the browser.
 
 This page is about the first.
 
@@ -102,7 +102,7 @@ Colours are available as CSS variables: `var(--ng-accent)`, `var(--ng-ink)`, `va
 
 ## Reading how the built-in blocks are written
 
-Every Yulia block is written in the same Liquid and lives in the repository under [`backend/app/blocks`](https://github.com/emostr/yulia/tree/main/backend/app/blocks). That is not hidden code — it is a set of worked examples to read and copy.
+Every Yulia block is written in the same Liquid and lives in the repository under [`backend/app/blocks`](https://github.com/emostr/YuliaCMS/tree/main/backend/app/blocks). That is not hidden code — it is a set of worked examples to read and copy.
 
 ## When a block is broken
 
@@ -110,5 +110,5 @@ A template with an error does not take the page down: the broken block simply is
 
 ## Next
 
-- [htmx](/yulia/en/htmx/) — teaching a block to talk to the server.
-- [Blocks in Svelte](/yulia/en/svelte/) — when you need logic in the browser.
+- [htmx](/YuliaCMS/en/htmx/) — teaching a block to talk to the server.
+- [Blocks in Svelte](/YuliaCMS/en/svelte/) — when you need logic in the browser.

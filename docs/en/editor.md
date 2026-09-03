@@ -34,7 +34,7 @@ Hover over a block and the buttons appear on the right. Duplicating copies the b
 |---|---|
 | **Hero** | a large opening screen: heading, subheading, picture, button |
 | **Heading** | a section heading; the level is chosen, and it is a real `h1`...`h4` |
-| **Text** | paragraphs, lists, quotes, pictures, [formulas](/yulia/en/text/) |
+| **Text** | paragraphs, lists, quotes, pictures, [formulas](/YuliaCMS/en/text/) |
 | **Quote** | a testimonial with an attribution |
 | **Image** | one picture with a caption |
 | **Gallery** | several pictures in a grid |
@@ -45,7 +45,7 @@ Hover over a block and the buttons appear on the right. Duplicating copies the b
 | **Embed** | a map, video or player from another site |
 | **Divider**, **Spacer** | air between sections |
 
-Not enough? [Write your own block](/yulia/en/blocks/).
+Not enough? [Write your own block](/YuliaCMS/en/blocks/).
 
 ## Block settings
 

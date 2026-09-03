@@ -27,7 +27,7 @@ module Yulia
   module Installer
     VERSION = "0.1.0"
 
-    REPOSITORY = ENV.fetch("YULIA_REPOSITORY", "https://github.com/emostr/yulia.git")
+    REPOSITORY = ENV.fetch("YULIA_REPOSITORY", "https://github.com/emostr/YuliaCMS.git")
     INSTALL_DIR = ENV.fetch("YULIA_DIR", "/opt/yulia")
 
     # Keys that arrive as a single control character.

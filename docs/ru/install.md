@@ -92,7 +92,7 @@ apt-get update && apt-get install -y ruby curl
 ## Шаг 5. Установщик
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/emostr/yulia/main/InstallYulia.rb -o InstallYulia.rb
+curl -fsSL https://raw.githubusercontent.com/emostr/YuliaCMS/main/InstallYulia.rb -o InstallYulia.rb
 sudo ruby InstallYulia.rb
 ```
 
@@ -121,16 +121,16 @@ sudo ruby InstallYulia.rb
 https://admin.example.com
 ```
 
-Дальше — [первые шаги](/yulia/ru/first-steps/): вы придумаете логин и пароль, привяжете второй фактор и попадёте в админку.
+Дальше — [первые шаги](/YuliaCMS/ru/first-steps/): вы придумаете логин и пароль, привяжете второй фактор и попадёте в админку.
 
-**На сервер возвращаться больше не нужно.** Даже для обновлений — см. [Обновление](/yulia/ru/updating/).
+**На сервер возвращаться больше не нужно.** Даже для обновлений — см. [Обновление](/YuliaCMS/ru/updating/).
 
 ## Если хочется попробовать локально
 
 Ставить сервер, чтобы посмотреть, — необязательно. На своём компьютере, если есть Docker:
 
 ```bash
-git clone https://github.com/emostr/yulia.git
+git clone https://github.com/emostr/YuliaCMS.git
 cd yulia
 cp .env.example .env
 # Ключ подписи кук: без него приложение не стартует

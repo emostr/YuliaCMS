@@ -9,7 +9,7 @@ description: >-
   A small CMS you install with one command and then never touch the server again.
 
 url: https://emostr.github.io
-baseurl: /yulia
+baseurl: /YuliaCMS
 
 # The landing pages carry their own markup; everything else uses the docs layout.
 defaults:

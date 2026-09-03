@@ -3,7 +3,7 @@
 **Простая CMS, которую ставят одной командой и дальше не трогают сервер.**
 *A small CMS you install with one command and then never touch the server again.*
 
-[Документация](https://emostr.github.io/yulia/ru/install/) · [Documentation](https://emostr.github.io/yulia/en/install/)
+[Документация](https://emostr.github.io/YuliaCMS/ru/install/) · [Documentation](https://emostr.github.io/YuliaCMS/en/install/)
 
 ---
 
@@ -25,7 +25,7 @@ Yulia — это то, чем мог бы быть WordPress, если бы ег
 - **HTTPS сам.** Направьте домен на сервер, впишите его в админке — сертификат
   Let's Encrypt выпустится при первом обращении.
 - **Свои блоки.** Не хватило готовых — напишите свой на Liquid с
-  [htmx](https://emostr.github.io/yulia/ru/htmx/) или компонентом Svelte. Прямо
+  [htmx](https://emostr.github.io/YuliaCMS/ru/htmx/) или компонентом Svelte. Прямо
   в админке, без доступа к серверу.
 
 ### Почему сайты получаются быстрыми
@@ -42,19 +42,19 @@ Yulia — это то, чем мог бы быть WordPress, если бы ег
 
 ```bash
 apt-get update && apt-get install -y ruby curl
-curl -fsSL https://raw.githubusercontent.com/emostr/yulia/main/InstallYulia.rb -o InstallYulia.rb
+curl -fsSL https://raw.githubusercontent.com/emostr/YuliaCMS/main/InstallYulia.rb -o InstallYulia.rb
 sudo ruby InstallYulia.rb
 ```
 
 Скрипт спросит домен админки, проверит его по DNS, поставит Docker, скачает Yulia
 и всё запустит. Повторный запуск обновляет установку.
 
-Подробно, включая установку самого Debian: [документация](https://emostr.github.io/yulia/ru/install/).
+Подробно, включая установку самого Debian: [документация](https://emostr.github.io/YuliaCMS/ru/install/).
 
 ### Попробовать локально
 
 ```bash
-git clone https://github.com/emostr/yulia.git
+git clone https://github.com/emostr/YuliaCMS.git
 cd yulia
 cp .env.example .env
 sed -i '' "s/^SECRET_KEY_BASE=$/SECRET_KEY_BASE=$(openssl rand -hex 64)/" .env
@@ -83,7 +83,7 @@ to go back to.
 - **HTTPS by itself.** Point a domain at the server, type it into the admin panel,
   and the Let's Encrypt certificate is obtained on the first request.
 - **Your own blocks.** When the built-in ones are not enough, write one in Liquid
-  with [htmx](https://emostr.github.io/yulia/en/htmx/), or as a Svelte component —
+  with [htmx](https://emostr.github.io/YuliaCMS/en/htmx/), or as a Svelte component —
   from the admin panel, with no server access.
 
 ### Why the sites come out fast
@@ -100,7 +100,7 @@ On a fresh Debian 13:
 
 ```bash
 apt-get update && apt-get install -y ruby curl
-curl -fsSL https://raw.githubusercontent.com/emostr/yulia/main/InstallYulia.rb -o InstallYulia.rb
+curl -fsSL https://raw.githubusercontent.com/emostr/YuliaCMS/main/InstallYulia.rb -o InstallYulia.rb
 sudo ruby InstallYulia.rb
 ```
 
@@ -109,12 +109,12 @@ Docker, downloads Yulia and starts everything. Running it again updates the
 installation.
 
 Full instructions, including installing Debian itself:
-[documentation](https://emostr.github.io/yulia/en/install/).
+[documentation](https://emostr.github.io/YuliaCMS/en/install/).
 
 ### Running it locally
 
 ```bash
-git clone https://github.com/emostr/yulia.git
+git clone https://github.com/emostr/YuliaCMS.git
 cd yulia
 cp .env.example .env
 sed -i '' "s/^SECRET_KEY_BASE=$/SECRET_KEY_BASE=$(openssl rand -hex 64)/" .env
@@ -171,4 +171,4 @@ cd backend && RAILS_ENV=test bin/rails test
 
 ## Лицензия / Licence
 
-MIT. See [LICENSE](LICENSE).
+Apache License 2.0. See [LICENSE](LICENSE).

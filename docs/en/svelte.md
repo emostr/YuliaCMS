@@ -4,7 +4,7 @@ description: When you need a real component in the browser — how it is compile
 permalink: /en/svelte/
 ---
 
-A block in [Liquid with htmx](/yulia/en/htmx/) covers nearly everything. Sometimes, though, you need logic **inside the browser** with no round trip to the server: a calculator, a configurator, an interactive diagram. That is what Svelte blocks are for.
+A block in [Liquid with htmx](/YuliaCMS/en/htmx/) covers nearly everything. Sometimes, though, you need logic **inside the browser** with no round trip to the server: a calculator, a configurator, an interactive diagram. That is what Svelte blocks are for.
 
 > This is not the "more advanced" path, just a different one. If htmx solves the problem, use htmx: it will be faster and the visitor gets no JavaScript at all.
 

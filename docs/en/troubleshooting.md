@@ -145,7 +145,7 @@ docker system prune -a   # removes unused images
 
 ## Where to ask
 
-Describe the problem in [GitHub issues](https://github.com/emostr/yulia/issues). Include the output of:
+Describe the problem in [GitHub issues](https://github.com/emostr/YuliaCMS/issues). Include the output of:
 
 ```bash
 docker compose ps

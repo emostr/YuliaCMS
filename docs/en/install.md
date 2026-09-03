@@ -92,7 +92,7 @@ Everything else — Docker, the database, the web server — is installed by the
 ## Step 5. The installer
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/emostr/yulia/main/InstallYulia.rb -o InstallYulia.rb
+curl -fsSL https://raw.githubusercontent.com/emostr/YuliaCMS/main/InstallYulia.rb -o InstallYulia.rb
 sudo ruby InstallYulia.rb
 ```
 
@@ -121,16 +121,16 @@ When the installer says it has finished, open this in a browser on **your own** 
 https://admin.example.com
 ```
 
-Continue with [first steps](/yulia/en/first-steps/): you will choose a password, enrol a second factor, and land in the admin panel.
+Continue with [first steps](/YuliaCMS/en/first-steps/): you will choose a password, enrol a second factor, and land in the admin panel.
 
-**You never need to come back to the server** — not even for updates. See [Updating](/yulia/en/updating/).
+**You never need to come back to the server** — not even for updates. See [Updating](/YuliaCMS/en/updating/).
 
 ## Trying it locally
 
 You do not need a server just to look at it. On your own machine, if you have Docker:
 
 ```bash
-git clone https://github.com/emostr/yulia.git
+git clone https://github.com/emostr/YuliaCMS.git
 cd yulia
 cp .env.example .env
 # The key that signs cookies. The application will not start without it.

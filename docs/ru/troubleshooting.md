@@ -145,7 +145,7 @@ docker system prune -a   # удалит неиспользуемые образ�
 
 ## Где спросить
 
-Опишите задачу в [issues на GitHub](https://github.com/emostr/yulia/issues). Приложите вывод:
+Опишите задачу в [issues на GitHub](https://github.com/emostr/YuliaCMS/issues). Приложите вывод:
 
 ```bash
 docker compose ps
