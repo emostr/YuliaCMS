@@ -112,7 +112,7 @@ The `:inherited` modifier says "this attribute is for my descendants". It goes o
 
 ## What this looks like in a Yulia block
 
-Your block is a [Liquid](/YuliaCMS/en/blocks/) template, and field values arrive as `block.<key>`. Here is a "load more" block:
+Your block is a [Liquid]({{ '/en/blocks/' | relative_url }}) template, and field values arrive as `block.<key>`. Here is a "load more" block:
 
 ```liquid
 {% raw %}<section class="y-features">
@@ -220,6 +220,6 @@ If you are reading an older article or example, check it against this table.
 
 ## Where to go next
 
-- [Your own blocks](/YuliaCMS/en/blocks/) — how a block template is put together and what fields exist.
-- [Blocks in Svelte](/YuliaCMS/en/svelte/) — for when htmx is not enough.
+- [Your own blocks]({{ '/en/blocks/' | relative_url }}) — how a block template is put together and what fields exist.
+- [Blocks in Svelte]({{ '/en/svelte/' | relative_url }}) — for when htmx is not enough.
 - [The official htmx documentation](https://htmx.org) — if you want to go deeper.

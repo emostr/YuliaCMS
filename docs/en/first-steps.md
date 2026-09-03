@@ -32,7 +32,7 @@ A fresh set can be issued at any time from **Account**. Doing so stops the old o
 
 The admin panel opens on a list of sites, which is empty. Press **New site** and give it a name. It arrives with a home page and a hero block already on it, so the editor does not greet you with nothing.
 
-Next: [the visual editor](/YuliaCMS/en/editor/).
+Next: [the visual editor]({{ '/en/editor/' | relative_url }}).
 
 ## Viewing a site before it has a domain
 
@@ -44,7 +44,7 @@ https://admin.example.com/preview/site-address
 
 The site's address is shown in its settings. Drafts are visible here too — but **only to you**, while signed in. A visitor who is not signed in gets a 404.
 
-When the site is ready, [attach a domain](/YuliaCMS/en/domains/).
+When the site is ready, [attach a domain]({{ '/en/domains/' | relative_url }}).
 
 ## What lives where
 

@@ -8,8 +8,12 @@ description: >-
   Простая CMS, которую ставят одной командой и дальше не трогают сервер.
   A small CMS you install with one command and then never touch the server again.
 
-url: https://emostr.github.io
-baseurl: /YuliaCMS
+url: https://yuliacms.emostr.com
+# The site is served at the root of yuliacms.emostr.com, so there is no path
+# prefix. A fork without a custom domain would set this to "/<repo-name>";
+# every internal link goes through `relative_url`, so that is the only line
+# that needs changing.
+baseurl: ""
 
 # The landing pages carry their own markup; everything else uses the docs layout.
 defaults:

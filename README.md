@@ -3,7 +3,7 @@
 **Простая CMS, которую ставят одной командой и дальше не трогают сервер.**
 *A small CMS you install with one command and then never touch the server again.*
 
-[Документация](https://emostr.github.io/YuliaCMS/ru/install/) · [Documentation](https://emostr.github.io/YuliaCMS/en/install/)
+[Документация](https://yuliacms.emostr.com/ru/install/) · [Documentation](https://yuliacms.emostr.com/en/install/)
 
 ---
 
@@ -25,7 +25,7 @@ Yulia — это то, чем мог бы быть WordPress, если бы ег
 - **HTTPS сам.** Направьте домен на сервер, впишите его в админке — сертификат
   Let's Encrypt выпустится при первом обращении.
 - **Свои блоки.** Не хватило готовых — напишите свой на Liquid с
-  [htmx](https://emostr.github.io/YuliaCMS/ru/htmx/) или компонентом Svelte. Прямо
+  [htmx](https://yuliacms.emostr.com/ru/htmx/) или компонентом Svelte. Прямо
   в админке, без доступа к серверу.
 
 ### Почему сайты получаются быстрыми
@@ -49,7 +49,7 @@ sudo ruby InstallYulia.rb
 Скрипт спросит домен админки, проверит его по DNS, поставит Docker, скачает Yulia
 и всё запустит. Повторный запуск обновляет установку.
 
-Подробно, включая установку самого Debian: [документация](https://emostr.github.io/YuliaCMS/ru/install/).
+Подробно, включая установку самого Debian: [документация](https://yuliacms.emostr.com/ru/install/).
 
 ### Попробовать локально
 
@@ -83,7 +83,7 @@ to go back to.
 - **HTTPS by itself.** Point a domain at the server, type it into the admin panel,
   and the Let's Encrypt certificate is obtained on the first request.
 - **Your own blocks.** When the built-in ones are not enough, write one in Liquid
-  with [htmx](https://emostr.github.io/YuliaCMS/en/htmx/), or as a Svelte component —
+  with [htmx](https://yuliacms.emostr.com/en/htmx/), or as a Svelte component —
   from the admin panel, with no server access.
 
 ### Why the sites come out fast
@@ -109,7 +109,7 @@ Docker, downloads Yulia and starts everything. Running it again updates the
 installation.
 
 Full instructions, including installing Debian itself:
-[documentation](https://emostr.github.io/YuliaCMS/en/install/).
+[documentation](https://yuliacms.emostr.com/en/install/).
 
 ### Running it locally
 

@@ -121,9 +121,9 @@ When the installer says it has finished, open this in a browser on **your own** 
 https://admin.example.com
 ```
 
-Continue with [first steps](/YuliaCMS/en/first-steps/): you will choose a password, enrol a second factor, and land in the admin panel.
+Continue with [first steps]({{ '/en/first-steps/' | relative_url }}): you will choose a password, enrol a second factor, and land in the admin panel.
 
-**You never need to come back to the server** — not even for updates. See [Updating](/YuliaCMS/en/updating/).
+**You never need to come back to the server** — not even for updates. See [Updating]({{ '/en/updating/' | relative_url }}).
 
 ## Trying it locally
 

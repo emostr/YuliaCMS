@@ -8,8 +8,8 @@ The built-in blocks are enough for most sites. When they are not — a timetable
 
 There are two kinds:
 
-- **HTML** — a template the server renders. The recommended path: fast, works without JavaScript, and [pairs with htmx](/YuliaCMS/en/htmx/).
-- **[Svelte](/YuliaCMS/en/svelte/)** — a real component, for when you need substantial logic in the browser.
+- **HTML** — a template the server renders. The recommended path: fast, works without JavaScript, and [pairs with htmx]({{ '/en/htmx/' | relative_url }}).
+- **[Svelte]({{ '/en/svelte/' | relative_url }})** — a real component, for when you need substantial logic in the browser.
 
 This page is about the first.
 
@@ -110,5 +110,5 @@ A template with an error does not take the page down: the broken block simply is
 
 ## Next
 
-- [htmx](/YuliaCMS/en/htmx/) — teaching a block to talk to the server.
-- [Blocks in Svelte](/YuliaCMS/en/svelte/) — when you need logic in the browser.
+- [htmx]({{ '/en/htmx/' | relative_url }}) — teaching a block to talk to the server.
+- [Blocks in Svelte]({{ '/en/svelte/' | relative_url }}) — when you need logic in the browser.

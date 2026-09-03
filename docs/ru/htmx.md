@@ -112,7 +112,7 @@ permalink: /ru/htmx/
 
 ## Как это выглядит в блоке Yulia
 
-Ваш блок — это шаблон на [Liquid](/YuliaCMS/ru/blocks/). Значения полей лежат в `block.<ключ>`. Вот блок «Показать ещё»:
+Ваш блок — это шаблон на [Liquid]({{ '/ru/blocks/' | relative_url }}). Значения полей лежат в `block.<ключ>`. Вот блок «Показать ещё»:
 
 ```liquid
 {% raw %}<section class="y-features">
@@ -220,6 +220,6 @@ permalink: /ru/htmx/
 
 ## Что читать дальше
 
-- [Свои блоки](/YuliaCMS/ru/blocks/) — как устроен шаблон блока и какие бывают поля.
-- [Блоки на Svelte](/YuliaCMS/ru/svelte/) — когда htmx не хватает.
+- [Свои блоки]({{ '/ru/blocks/' | relative_url }}) — как устроен шаблон блока и какие бывают поля.
+- [Блоки на Svelte]({{ '/ru/svelte/' | relative_url }}) — когда htmx не хватает.
 - [Официальная документация htmx](https://htmx.org) — если захочется глубже.

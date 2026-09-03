@@ -12,6 +12,7 @@ on:
     paths:
       - 'docs/**'
       - '.github/workflows/pages.yml'
+      - 'scripts/check-links.rb'
   workflow_dispatch:
 
 # Pages deployment needs these; nothing else in the workflow writes anything.
@@ -45,6 +46,12 @@ jobs:
         run: bundle exec jekyll build --destination ../_site
         env:
           JEKYLL_ENV: production
+
+      # A wrong baseurl builds cleanly and publishes a site where every page
+      # loads and every link is a 404. Nothing else in this workflow would
+      # notice, so the links are checked before anything is deployed.
+      - name: Check internal links
+        run: ruby scripts/check-links.rb _site
 
       - uses: actions/upload-pages-artifact@v4
         with:
