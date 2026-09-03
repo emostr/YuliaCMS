@@ -37,10 +37,7 @@
 		output file /data/log/admin.log
 	}
 
-	reverse_proxy app:3000 {
-		header_up Host {host}
-		header_up X-Forwarded-Host {host}
-	}
+	reverse_proxy app:3000
 }
 
 # --- User sites --------------------------------------------------------------
@@ -63,8 +60,5 @@ https:// {
 		output file /data/log/sites.log
 	}
 
-	reverse_proxy app:3000 {
-		header_up Host {host}
-		header_up X-Forwarded-Host {host}
-	}
+	reverse_proxy app:3000
 }

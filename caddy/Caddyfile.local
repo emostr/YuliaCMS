@@ -20,9 +20,10 @@
 		max_size {$MAX_UPLOAD_MB:64}MB
 	}
 
-	reverse_proxy app:3000 {
-		# The application needs the requested domain to choose the site.
-		header_up Host {host}
-		header_up X-Forwarded-Host {host}
-	}
+	# Caddy v2 forwards the original Host header and sets the X-Forwarded-*
+	# headers itself, so it is deliberately left alone here. Overriding Host
+	# with the {host} placeholder drops the port: Rails then computed a base_url
+	# of http://localhost while the browser sent Origin http://localhost:8080,
+	# and every write from the admin panel was refused as a forgery.
+	reverse_proxy app:3000
 }
