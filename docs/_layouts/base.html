@@ -3,7 +3,20 @@
   <head>{% include head.html %}</head>
   <body>
     {% include header.html %}
+
+    {%- comment -%}
+      Cloudflare sits in front of this domain and rewrites anything that looks
+      like an email address into a "[email protected]" link. Every address in
+      this documentation is an example the reader has to replace with their own
+      value - including one inside a shell command on the page you reach when
+      you are locked out of your own installation. Obfuscating those turns
+      instructions into something that cannot be followed, and there is no real
+      address here to protect.
+    {%- endcomment -%}
+    <!--email_off-->
     {{ content }}
+    <!--/email_off-->
+
     {% include footer.html %}
   </body>
 </html>
