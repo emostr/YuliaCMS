@@ -1,0 +1,12 @@
+source "https://rubygems.org"
+
+# GitHub Pages pins its own versions; this gem set matches what it builds with,
+# so a local `bundle exec jekyll serve` shows the same site that gets published.
+gem "jekyll", "~> 4.3"
+gem "kramdown-parser-gfm"
+gem "rouge"
+
+# Jekyll no longer ships these on newer Rubies.
+gem "csv"
+gem "base64"
+gem "logger"

@@ -1,0 +1,28 @@
+# Caddyfile for running Yulia on your own machine.
+#
+# No domains and no certificates: everything arrives over plain HTTP on one
+# port. The admin panel and the sites are told apart by the address requested —
+# the application picks the site from the Host header (see Yulia::SiteResolver).
+#
+# Opens at http://localhost:8080
+
+{
+	# Caddy must not try to obtain certificates: the names here are not real.
+	auto_https off
+	admin off
+}
+
+:80 {
+	encode zstd gzip
+
+	# Media library uploads can be large, so raise the request ceiling.
+	request_body {
+		max_size {$MAX_UPLOAD_MB:64}MB
+	}
+
+	reverse_proxy app:3000 {
+		# The application needs the requested domain to choose the site.
+		header_up Host {host}
+		header_up X-Forwarded-Host {host}
+	}
+}

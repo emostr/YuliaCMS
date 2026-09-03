@@ -1,0 +1,11 @@
+<figure class="y-quote">
+  <blockquote>{{ block.text | escape | newline_to_br }}</blockquote>
+  {%- if block.author != blank -%}
+    <figcaption>
+      <span class="y-quote-author">{{ block.author | escape }}</span>
+      {%- if block.role != blank -%}
+        <span class="y-quote-role">{{ block.role | escape }}</span>
+      {%- endif -%}
+    </figcaption>
+  {%- endif -%}
+</figure>

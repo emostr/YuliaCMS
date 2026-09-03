@@ -1,0 +1,88 @@
+# Yulia CMS — the whole stack in one file.
+#
+#   docker compose up -d          start everything
+#   docker compose logs -f app    follow the application log
+#   docker compose down           stop
+#
+# Nothing needs configuring to run this locally: the defaults are enough.
+# On a server, InstallYulia.rb writes the real values into .env.
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-yulia}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-yulia}
+      POSTGRES_DB: ${POSTGRES_DB:-yulia_production}
+    volumes:
+      # postgres:18 expects the whole of /var/lib/postgresql to be the volume,
+      # with the data living in a subdirectory. Mounting it this way means a
+      # future major-version upgrade is not blocked by the mount point.
+      - pgdata:/var/lib/postgresql
+    ports:
+      - '${POSTGRES_BIND:-127.0.0.1}:${POSTGRES_PORT:-5433}:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-yulia} -d ${POSTGRES_DB:-yulia_production}']
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      RAILS_ENV: production
+      # Send logs to `docker compose logs` rather than a file inside the container.
+      RAILS_LOG_TO_STDOUT: 'true'
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: '5432'
+      POSTGRES_USER: ${POSTGRES_USER:-yulia}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-yulia}
+      POSTGRES_DB: ${POSTGRES_DB:-yulia_production}
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE:?generate one with `openssl rand -hex 64` and put it in .env}
+      ADMIN_DOMAIN: ${ADMIN_DOMAIN:-}
+      SESSION_DAYS: ${SESSION_DAYS:-30}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-64}
+      # Background jobs (compiling Svelte islands, DNS checks) run inside the
+      # web process. On a small VPS a separate worker container is not worth it.
+      SOLID_QUEUE_IN_PUMA: 'true'
+    volumes:
+      # Uploaded images and compiled islands must survive an image rebuild.
+      - storage:/rails/storage
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -fsS http://127.0.0.1:3000/up || exit 1']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 40s
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    environment:
+      ADMIN_DOMAIN: ${ADMIN_DOMAIN:-}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-64}
+    volumes:
+      - ${CADDYFILE:-./caddy/Caddyfile.local}:/etc/caddy/Caddyfile:ro
+      # Issued certificates live here. Losing this volume means starting over
+      # against the Let's Encrypt rate limits.
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - '${HTTP_BIND:-127.0.0.1}:${HTTP_PORT:-8080}:80'
+      - '${HTTP_BIND:-127.0.0.1}:${HTTPS_PORT:-8443}:443'
+
+volumes:
+  pgdata:
+  storage:
+  caddy_data:
+  caddy_config:

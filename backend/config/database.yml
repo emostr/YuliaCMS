@@ -1,0 +1,70 @@
+# Yulia stores everything in PostgreSQL.
+#
+# Connection details come from the environment so that the same image runs
+# locally and on a server without editing this file. Locally the defaults point
+# at the Postgres started by `docker compose up -d postgres`, which publishes
+# port 5433 on the host to avoid clashing with any Postgres already installed.
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("POSTGRES_HOST", "127.0.0.1") %>
+  port: <%= ENV.fetch("POSTGRES_PORT", 5433) %>
+  username: <%= ENV.fetch("POSTGRES_USER", "yulia") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD", "yulia") %>
+  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+
+<%
+  # Solid Cache, Solid Queue and Solid Cable keep their tables apart from the
+  # content schema. Their names are derived from the main database so that only
+  # one setting has to be configured.
+  main = ENV.fetch("POSTGRES_DB", "yulia_development")
+%>
+
+development:
+  primary:
+    <<: *default
+    database: <%= main %>
+  cache:
+    <<: *default
+    database: <%= main %>_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *default
+    database: <%= main %>_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *default
+    database: <%= main %>_cable
+    migrations_paths: db/cable_migrate
+
+# `bin/rails test` wipes and rebuilds this database, so it must never be the
+# one used for development. The name does not follow POSTGRES_DB: that
+# variable already carries an environment suffix of its own.
+#
+# Only one database here, unlike development and production. The test
+# environment uses the null cache store, the test job adapter and the async
+# cable adapter, so the Solid tables are never touched - and creating three
+# extra databases per parallel worker made the suite spend longer setting up
+# than running.
+<% test_db = ENV.fetch("POSTGRES_TEST_DB", "yulia_test") %>
+test:
+  <<: *default
+  database: <%= test_db %>
+
+production:
+  primary:
+    <<: *default
+    database: <%= main %>
+  cache:
+    <<: *default
+    database: <%= main %>_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *default
+    database: <%= main %>_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *default
+    database: <%= main %>_cable
+    migrations_paths: db/cable_migrate

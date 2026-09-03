@@ -1,0 +1,13 @@
+{%- comment -%}
+  Markup pasted by the author - an embedded map or video, usually. It is
+  sanitised on the server before it reaches this template, which is why it is
+  emitted rather than escaped.
+{%- endcomment -%}
+{%- if block.html != blank -%}
+  <div class="y-embed">
+    {{ block.html }}
+    {%- if block.caption != blank -%}
+      <p class="y-embed-caption">{{ block.caption | escape }}</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}

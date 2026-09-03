@@ -1,0 +1,34 @@
+en:
+  yulia:
+    public:
+      empty_page: There is nothing on this page yet.
+      not_found_title: Page not found
+      not_found_text: It may have been deleted, or the address may have a typo in it.
+      back_home: Go to the home page
+      no_site_title: Site not found
+      no_site_text: This address is not attached to any site in this Yulia installation.
+      nav_label: Main menu
+      made_with_html: Built with <a href="https://github.com/emostr/yulia">Yulia</a>
+    forms:
+      sent: Thank you. We have received your message.
+      too_many: Too many submissions in a row. Please try again in a few minutes.
+  activerecord:
+    models:
+      site: Site
+      page: Page
+      domain: Domain
+      user: User
+      block_type: Block
+      media_item: File
+    attributes:
+      site:
+        name: Name
+        slug: Address
+      page:
+        title: Title
+        slug: Address
+      user:
+        email: Email
+        password: Password
+      domain:
+        host: Domain

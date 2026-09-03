@@ -1,0 +1,21 @@
+# Secrets and machine-specific configuration
+.env
+
+# Rails
+backend/tmp/
+backend/log/
+backend/storage/
+backend/.bundle/
+backend/vendor/bundle/
+
+# Built front end: produced by `npm run build`, not committed
+backend/public/admin/
+backend/public/yulia/
+frontend/dist/
+frontend/node_modules/
+node_modules/
+
+# Editors and operating systems
+.DS_Store
+*.swp
+.vscode/

@@ -1,0 +1,7 @@
+{%- if block.label != blank -%}
+  <div class="y-button-row y-align-{{ block.align | default: 'left' }}">
+    <a class="y-button y-button-{{ block.variant | default: 'solid' }}" href="{{ block.href | default: '/' | escape }}">
+      {{- block.label | escape -}}
+    </a>
+  </div>
+{%- endif -%}

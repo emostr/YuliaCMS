@@ -1,0 +1,53 @@
+// A small icon set, drawn as SVG path data.
+//
+// Inline rather than an icon font or a package: the panel uses about thirty
+// icons, and shipping a library for them would cost more than it saves.
+// Every path is drawn on a 24x24 grid with a 2px stroke.
+
+export const icons: Record<string, string> = {
+  plus: 'M12 5v14M5 12h14',
+  check: 'M20 6 9 17l-5-5',
+  x: 'M18 6 6 18M6 6l12 12',
+  trash: 'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6',
+  edit: 'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z',
+  eye: 'M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
+  globe: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z',
+  file: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z M14 2v6h6',
+  image: 'M3 5h18v14H3ZM3 16l5-5 4 4 3-3 6 6',
+  layers: 'm12 2 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 17l9 5 9-5',
+  settings: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2 2 2 0 1 1-4 0 1.7 1.7 0 0 0-2.9-1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.7 1.7 0 0 0 3 15a2 2 0 1 1 0-4 1.7 1.7 0 0 0 1.2-2.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 10 4a2 2 0 1 1 4 0 1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1A1.7 1.7 0 0 0 21 11a2 2 0 1 1 0 4Z',
+  logout: 'M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9',
+  sun: 'M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10ZM12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4',
+  moon: 'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z',
+  drag: 'M9 5h.01M9 12h.01M9 19h.01M15 5h.01M15 12h.01M15 19h.01',
+  up: 'm18 15-6-6-6 6',
+  down: 'm6 9 6 6 6-6',
+  left: 'm15 18-6-6 6-6',
+  right: 'm9 18 6-6-6-6',
+  bold: 'M6 4h8a4 4 0 0 1 0 8H6ZM6 12h9a4 4 0 0 1 0 8H6Z',
+  italic: 'M19 4h-9M14 20H5M15 4 9 20',
+  list: 'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01',
+  listOrdered: 'M10 6h11M10 12h11M10 18h11M4 6h1v4M4 10h2M6 18H4l2-3H4',
+  sigma: 'M18 7V4H6l6 8-6 8h12v-3',
+  code: 'm16 18 6-6-6-6M8 6l-6 6 6 6',
+  quote: 'M3 21c3 0 7-1 7-8V5H3v7h4c0 4-1 5-4 5ZM14 21c3 0 7-1 7-8V5h-7v7h4c0 4-1 5-4 5Z',
+  heading: 'M6 4v16M18 4v16M6 12h12',
+  text: 'M4 7V5h16v2M9 5v14M15 5v14M8 19h8',
+  grid: 'M3 3h7v7H3ZM14 3h7v7h-7ZM14 14h7v7h-7ZM3 14h7v7H3Z',
+  gallery: 'M3 5h18v14H3ZM3 15l4-4 3 3 4-4 7 7',
+  button: 'M3 8h18v8H3ZM7 12h10',
+  form: 'M4 3h16v18H4ZM8 8h8M8 12h8M8 16h4',
+  megaphone: 'M3 11v2a1 1 0 0 0 1 1h2l6 4V6L6 10H4a1 1 0 0 0-1 1ZM16 8a5 5 0 0 1 0 8',
+  minus: 'M5 12h14',
+  space: 'M4 8v8M20 8v8M8 12h8M8 12l2-2M8 12l2 2M16 12l-2-2M16 12l-2 2',
+  puzzle: 'M10 3h4v3a2 2 0 1 0 4 0V3h3v4h-3a2 2 0 1 0 0 4h3v10H3V11h3a2 2 0 1 0 0-4H3V3h3v3a2 2 0 1 0 4 0Z',
+  search: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM21 21l-4.3-4.3',
+  refresh: 'M21 12a9 9 0 1 1-2.6-6.4M21 3v6h-6',
+  copy: 'M9 9h11v11H9ZM5 15H4V4h11v1',
+  key: 'M15 2a7 7 0 0 0-6.7 9L2 17.3V22h4.7l1.3-1.3V19h2v-2h2l1.3-1.3A7 7 0 1 0 15 2Zm2.5 5.5h.01',
+  shield: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z',
+  send: 'M22 2 11 13M22 2l-7 20-4-9-9-4Z',
+  inbox: 'M22 12h-6l-2 3h-4l-2-3H2M5 5h14l3 7v7H2v-7Z',
+  warning: 'M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z',
+  link: 'M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l2-2'
+};

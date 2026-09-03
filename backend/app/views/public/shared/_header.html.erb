@@ -1,0 +1,19 @@
+<%#
+  The site's own navigation, built in the admin panel. Rendered as a plain
+  nav element: no JavaScript is needed to open a link.
+%>
+<header class="y-header">
+  <a class="y-brand" href="/"><%= site.name %></a>
+
+  <% links = Array(site.navigation) %>
+  <% if links.any? %>
+    <nav class="y-nav" aria-label="<%= t('yulia.public.nav_label') %>">
+      <% links.each do |link| %>
+        <a href="<%= link["href"] %>"
+           <%= 'aria-current=page'.html_safe if link["href"] == @page&.path %>>
+          <%= link["label"] %>
+        </a>
+      <% end %>
+    </nav>
+  <% end %>
+</header>

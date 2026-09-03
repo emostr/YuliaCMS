@@ -1,0 +1,9 @@
+{%- if block.images.size > 0 -%}
+  <div class="y-gallery y-cols-{{ block.columns | default: '3' }}">
+    {%- for image in block.images -%}
+      {%- if image.src != blank -%}
+        <img src="{{ image.src | escape }}" alt="{{ image.alt | escape }}" loading="lazy" decoding="async">
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

@@ -1,0 +1,6 @@
+<footer class="y-footer">
+  <p>&copy; <%= Date.current.year %> <%= site.name %></p>
+  <% if site.settings["show_badge"] != false %>
+    <p class="y-badge"><%= t("yulia.public.made_with_html").html_safe %></p>
+  <% end %>
+</footer>

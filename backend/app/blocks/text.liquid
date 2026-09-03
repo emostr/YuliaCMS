@@ -1,0 +1,7 @@
+{%- comment -%}
+  Rich text from the editor. `block.html` has already been sanitised by the
+  server, so it is emitted as markup rather than escaped.
+{%- endcomment -%}
+<div class="y-text y-width-{{ block.width | default: 'normal' }}">
+  {{ block.html }}
+</div>

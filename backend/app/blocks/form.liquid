@@ -1,0 +1,43 @@
+{%- comment -%}
+  The htmx showcase.
+
+  The form posts itself and swaps the server's reply in over its own markup, so
+  a visitor never leaves the page - and the author wrote no JavaScript to get
+  that. `hx-disable` keeps the submit button from being pressed twice while the
+  request is in flight.
+
+  Without JavaScript the same form still submits normally and the server
+  answers with a full page: the block degrades instead of breaking.
+{%- endcomment -%}
+<form class="y-form"
+      method="post"
+      action="{{ form.action }}"
+      hx-post="{{ form.action }}"
+      hx-target="this"
+      hx-swap="outerHTML"
+      hx-disable="find button[type=submit]">
+  <input type="hidden" name="authenticity_token" value="{{ form.csrf_token }}">
+  <input type="hidden" name="block_id" value="{{ block.id }}">
+
+  {%- if block.title != blank -%}
+    <h2 class="y-form-title">{{ block.title | escape }}</h2>
+  {%- endif -%}
+
+  {%- for field in block.fields -%}
+    <label class="y-field">
+      <span class="y-field-label">
+        {{ field.label | escape }}
+        {%- if field.required -%}<span class="y-required" aria-hidden="true">*</span>{%- endif -%}
+      </span>
+      {%- if field.type == 'textarea' -%}
+        <textarea name="{{ field.name | escape }}" rows="5"
+                  {% if field.required %}required{% endif %}></textarea>
+      {%- else -%}
+        <input type="{{ field.type | default: 'text' | escape }}" name="{{ field.name | escape }}"
+               {% if field.required %}required{% endif %}>
+      {%- endif -%}
+    </label>
+  {%- endfor -%}
+
+  <button type="submit" class="y-button y-button-solid">{{ block.submit_label | escape }}</button>
+</form>

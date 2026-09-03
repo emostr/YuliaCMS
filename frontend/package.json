@@ -1,0 +1,29 @@
+{
+  "name": "yulia-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Admin panel (Svelte) and public-site runtime (htmx + islands) for Yulia CMS",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --config vite.site.config.ts && node scripts/install-assets.mjs",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "@tiptap/core": "3.31.2",
+    "@tiptap/extension-image": "3.31.2",
+    "@tiptap/pm": "3.31.2",
+    "@tiptap/starter-kit": "3.31.2",
+    "htmx.org": "4.0.0",
+    "katex": "0.18.5",
+    "svelte": "5.57.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "7.3.0",
+    "@tailwindcss/vite": "4.3.3",
+    "svelte-check": "4.7.6",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3",
+    "vite": "8.2.2"
+  }
+}

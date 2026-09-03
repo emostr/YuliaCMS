@@ -1,0 +1,62 @@
+---
+layout: base
+---
+{%- comment -%}
+  The sidebar order comes from _config.yml rather than from page front matter,
+  so the whole sequence can be read and reordered in one place.
+{%- endcomment -%}
+{% assign lang = page.lang | default: 'ru' %}
+{% assign nav = site.nav[lang] %}
+
+<div class="docs">
+  <aside class="sidebar">
+    <div class="label">{% if lang == 'en' %}Documentation{% else %}Документация{% endif %}</div>
+    <ol>
+      {% for item in nav %}
+        {% assign href = '/' | append: lang | append: '/' | append: item.page | append: '/' %}
+        <li>
+          <a href="{{ href | relative_url }}"
+             {% if page.url == href %}aria-current="page"{% endif %}>{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ol>
+  </aside>
+
+  <article>
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+
+    {%- comment -%}
+      Previous and next links, worked out from the same list. Documentation read
+      in order is documentation that gets read.
+    {%- endcomment -%}
+    {% assign index = -1 %}
+    {% for item in nav %}
+      {% assign href = '/' | append: lang | append: '/' | append: item.page | append: '/' %}
+      {% if page.url == href %}{% assign index = forloop.index0 %}{% endif %}
+    {% endfor %}
+
+    {%- comment -%}
+      Liquid will not take a filter inside an array index, so the neighbouring
+      positions are worked out into variables first.
+    {%- endcomment -%}
+    {% assign back = index | minus: 1 %}
+    {% assign forward = index | plus: 1 %}
+    {% assign last = nav.size | minus: 1 %}
+
+    <nav class="pager">
+      <span>
+        {% if index > 0 %}
+          {% assign previous = nav[back] %}
+          <a href="{{ '/' | append: lang | append: '/' | append: previous.page | append: '/' | relative_url }}">&larr; {{ previous.title }}</a>
+        {% endif %}
+      </span>
+      <span>
+        {% if index >= 0 and index < last %}
+          {% assign following = nav[forward] %}
+          <a href="{{ '/' | append: lang | append: '/' | append: following.page | append: '/' | relative_url }}">{{ following.title }} &rarr;</a>
+        {% endif %}
+      </span>
+    </nav>
+  </article>
+</div>

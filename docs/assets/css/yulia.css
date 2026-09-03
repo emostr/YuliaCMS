@@ -1,0 +1,389 @@
+/*
+ * Styles for the Yulia landing page and documentation.
+ *
+ * The same NightingaleUI palette the product uses, so the site and the thing it
+ * describes look like one piece of work. Square corners, one accent, dark by
+ * default with a light theme that follows the reader's system setting.
+ */
+
+:root {
+  --ng-bg: #0a0a0a;
+  --ng-surface: #141414;
+  --ng-surface-2: #1c1c1c;
+  --ng-surface-3: #262626;
+  --ng-line: #2a2a2a;
+  --ng-line-strong: #3a3a3a;
+
+  --ng-ink: #f5f5f5;
+  --ng-muted: #8a8a8a;
+  --ng-faint: #5a5a5a;
+
+  --ng-accent: #00b294;
+  --ng-accent-strong: #00967d;
+  --ng-on-accent: #04231d;
+
+  --ng-success: #16a06a;
+  --ng-warning: #d9920a;
+  --ng-danger: #e03e3e;
+
+  --measure: 72ch;
+  --page: 1180px;
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ng-bg: #eaeaea;
+    --ng-surface: #ffffff;
+    --ng-surface-2: #f4f4f4;
+    --ng-surface-3: #e6e6e6;
+    --ng-line: #d4d4d4;
+    --ng-line-strong: #bcbcbc;
+
+    --ng-ink: #141414;
+    --ng-muted: #5f5f5f;
+    --ng-faint: #9a9a9a;
+
+    --ng-accent: #00967d;
+    --ng-accent-strong: #007a66;
+    --ng-on-accent: #ffffff;
+
+    --ng-success: #12855a;
+    --ng-warning: #b97b06;
+    --ng-danger: #c62f2f;
+
+    color-scheme: light;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ng-bg);
+  color: var(--ng-ink);
+  font-family: 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--ng-accent); text-decoration: none; }
+a:hover { color: var(--ng-accent-strong); text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+:focus-visible { outline: 2px solid var(--ng-accent); outline-offset: 2px; }
+::selection { background: var(--ng-accent); color: var(--ng-on-accent); }
+
+code, pre, kbd {
+  font-family: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+/* --- Header ---------------------------------------------------------------- */
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.875rem 1.5rem;
+  background: var(--ng-surface);
+  border-bottom: 1px solid var(--ng-line);
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.125rem;
+  letter-spacing: -0.03em;
+  color: var(--ng-accent);
+}
+.brand:hover { text-decoration: none; }
+
+.top nav { display: flex; gap: 1.25rem; font-size: 0.9375rem; }
+.top nav a { color: var(--ng-muted); }
+.top nav a:hover, .top nav a[aria-current='page'] { color: var(--ng-ink); text-decoration: none; }
+
+.spacer { flex: 1; }
+
+/* Language switch: two states, so a segmented control rather than a dropdown. */
+.lang { display: flex; border: 1px solid var(--ng-line-strong); }
+.lang a {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ng-muted);
+  text-transform: uppercase;
+}
+.lang a:hover { color: var(--ng-ink); text-decoration: none; }
+.lang a.on { background: var(--ng-accent); color: var(--ng-on-accent); }
+
+/* --- Landing --------------------------------------------------------------- */
+
+.hero {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: clamp(3rem, 9vw, 7rem) 1.5rem clamp(2rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+.hero .lede {
+  max-width: 62ch;
+  margin: 0 auto 2.5rem;
+  font-size: clamp(1.0625rem, 2vw, 1.3125rem);
+  color: var(--ng-muted);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ng-accent);
+}
+
+.actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border: 1px solid transparent;
+}
+.button:hover { text-decoration: none; }
+.button-solid { background: var(--ng-accent); color: var(--ng-on-accent); }
+.button-solid:hover { filter: brightness(1.1); color: var(--ng-on-accent); }
+.button-outline { border-color: var(--ng-line-strong); color: var(--ng-ink); }
+.button-outline:hover { border-color: var(--ng-accent); color: var(--ng-accent); }
+
+/* The install command, shown as the thing it is: one line to copy. */
+.command {
+  max-width: 46rem;
+  margin: 2.5rem auto 0;
+  padding: 1rem 1.25rem;
+  background: var(--ng-surface);
+  border: 1px solid var(--ng-line);
+  border-left: 3px solid var(--ng-accent);
+  text-align: left;
+  font-size: 0.875rem;
+  overflow-x: auto;
+  white-space: pre;
+}
+.command .prompt { color: var(--ng-faint); user-select: none; }
+
+section.band { border-top: 1px solid var(--ng-line); }
+
+.wrap { max-width: var(--page); margin: 0 auto; padding: clamp(3rem, 7vw, 5rem) 1.5rem; }
+
+.wrap h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+.wrap .sub { margin: 0 0 2.5rem; color: var(--ng-muted); max-width: 60ch; }
+
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.card {
+  padding: 1.5rem;
+  background: var(--ng-surface);
+  border: 1px solid var(--ng-line);
+  border-top: 3px solid var(--ng-accent);
+}
+.card h3 { margin: 0 0 0.5rem; font-size: 1.0625rem; letter-spacing: -0.01em; }
+.card p { margin: 0; color: var(--ng-muted); font-size: 0.9375rem; }
+
+.steps { counter-reset: step; display: grid; gap: 1rem; }
+.step {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--ng-surface);
+  border: 1px solid var(--ng-line);
+}
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ng-accent);
+  line-height: 1.2;
+}
+.step h3 { margin: 0 0 0.25rem; font-size: 1rem; }
+.step p { margin: 0; color: var(--ng-muted); font-size: 0.9375rem; }
+
+.stack { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--ng-line-strong);
+  font-size: 0.8125rem;
+  color: var(--ng-muted);
+}
+.chip strong { color: var(--ng-ink); font-weight: 700; }
+
+/* --- Documentation layout --------------------------------------------------- */
+
+.docs {
+  display: grid;
+  grid-template-columns: 17rem minmax(0, 1fr);
+  gap: 3rem;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.sidebar { position: sticky; top: 4.5rem; align-self: start; }
+.sidebar .label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ng-faint);
+  margin-bottom: 0.75rem;
+}
+.sidebar ol { list-style: none; margin: 0; padding: 0; }
+.sidebar li { margin: 0; }
+.sidebar a {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--ng-muted);
+  border-left: 2px solid transparent;
+}
+.sidebar a:hover { color: var(--ng-ink); background: var(--ng-surface-2); text-decoration: none; }
+.sidebar a[aria-current='page'] {
+  color: var(--ng-ink);
+  font-weight: 700;
+  border-left-color: var(--ng-accent);
+  background: var(--ng-surface-2);
+}
+
+article { max-width: var(--measure); min-width: 0; }
+
+article h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  font-weight: 800;
+}
+article h2 {
+  margin: 2.75rem 0 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ng-line);
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
+}
+article h3 { margin: 2rem 0 0.5rem; font-size: 1.0625rem; }
+
+article p, article ul, article ol { margin: 0 0 1rem; }
+article ul, article ol { padding-left: 1.4em; }
+article li { margin-bottom: 0.35rem; }
+
+article code {
+  background: var(--ng-surface-2);
+  border: 1px solid var(--ng-line);
+  padding: 0.1em 0.35em;
+  font-size: 0.875em;
+}
+
+article pre {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--ng-surface);
+  border: 1px solid var(--ng-line);
+  border-left: 3px solid var(--ng-accent);
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+article pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+
+article blockquote {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--ng-surface-2);
+  border: 1px solid var(--ng-line);
+  border-left: 3px solid var(--ng-warning);
+  color: var(--ng-ink);
+}
+article blockquote p:last-child { margin-bottom: 0; }
+
+article table {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  display: block;
+  overflow-x: auto;
+}
+article th, article td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ng-line);
+  text-align: left;
+  vertical-align: top;
+}
+article th { background: var(--ng-surface-2); font-weight: 700; }
+
+article kbd {
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--ng-line-strong);
+  border-bottom-width: 2px;
+  font-size: 0.8125em;
+  background: var(--ng-surface-2);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ng-line);
+  font-size: 0.9375rem;
+}
+
+/* --- Footer ----------------------------------------------------------------- */
+
+footer.site {
+  border-top: 1px solid var(--ng-line);
+  color: var(--ng-muted);
+  font-size: 0.875rem;
+}
+footer.site .wrap { padding-block: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; }
+footer.site p { margin: 0; }
+
+/* --- Narrow screens ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .docs { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+
+  /* The sidebar becomes a collapsed list at the top rather than a column that
+     pushes the text into a gutter. */
+  .sidebar {
+    position: static;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--ng-line);
+  }
+  .sidebar ol { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+  .sidebar a { border-left: 0; border-bottom: 2px solid transparent; padding: 0.3rem 0.6rem; }
+  .sidebar a[aria-current='page'] { border-left: 0; border-bottom-color: var(--ng-accent); }
+
+  .top { gap: 1rem; padding: 0.75rem 1rem; }
+  .top nav { display: none; }
+}

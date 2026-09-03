@@ -1,0 +1,8 @@
+{%- case block.style -%}
+  {%- when 'dots' -%}
+    <div class="y-divider y-divider-dots" role="separator">&middot; &middot; &middot;</div>
+  {%- when 'space' -%}
+    <div class="y-divider y-divider-space" role="separator"></div>
+  {%- else -%}
+    <hr class="y-divider y-divider-line">
+{%- endcase -%}

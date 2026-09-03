@@ -1,0 +1,34 @@
+ru:
+  yulia:
+    public:
+      empty_page: На этой странице пока ничего нет.
+      not_found_title: Страница не найдена
+      not_found_text: Возможно, она была удалена или адрес набран с опечаткой.
+      back_home: На главную
+      no_site_title: Сайт не найден
+      no_site_text: Этот адрес не привязан ни к одному сайту в этой установке Yulia.
+      nav_label: Основное меню
+      made_with_html: Сделано на <a href="https://github.com/emostr/yulia">Yulia</a>
+    forms:
+      sent: Спасибо! Мы получили ваше сообщение.
+      too_many: Слишком много отправок подряд. Попробуйте через несколько минут.
+  activerecord:
+    models:
+      site: Сайт
+      page: Страница
+      domain: Домен
+      user: Пользователь
+      block_type: Блок
+      media_item: Файл
+    attributes:
+      site:
+        name: Название
+        slug: Адрес
+      page:
+        title: Заголовок
+        slug: Адрес
+      user:
+        email: Почта
+        password: Пароль
+      domain:
+        host: Домен

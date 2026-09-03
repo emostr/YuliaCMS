@@ -1,0 +1,7 @@
+{%- comment -%}
+  A section heading. The level is a real h1..h4 so that screen readers and
+  search engines see the document outline the author intended.
+{%- endcomment -%}
+<h{{ block.level | default: '2' }} class="y-heading y-align-{{ block.align | default: 'left' }}">
+  {{- block.text | escape -}}
+</h{{ block.level | default: '2' }}>

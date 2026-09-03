@@ -1,0 +1,13 @@
+{%- if block.src != blank -%}
+  <figure class="y-figure y-width-{{ block.width | default: 'normal' }}">
+    {%- comment -%}
+      Width and height are unknown until upload, so lazy loading is the only
+      lever available here to keep a long page from stalling on images far
+      below the fold.
+    {%- endcomment -%}
+    <img src="{{ block.src | escape }}" alt="{{ block.alt | escape }}" loading="lazy" decoding="async">
+    {%- if block.caption != blank -%}
+      <figcaption>{{ block.caption | escape }}</figcaption>
+    {%- endif -%}
+  </figure>
+{%- endif -%}

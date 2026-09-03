@@ -1,0 +1,30 @@
+# Keep the build context small and reproducible: everything the image needs is
+# built inside it, so local build output and caches must not leak in.
+
+.git
+.github
+.env
+.env.*
+!.env.example
+
+docs/
+*.md
+LICENSE
+
+# Installed and built locally; the image builds its own.
+frontend/node_modules
+frontend/dist
+node_modules
+
+# Rails working directories. storage/ in particular is a volume at run time -
+# copying a local copy in would shadow it.
+backend/tmp
+backend/log
+backend/storage
+backend/public/admin
+backend/public/yulia
+backend/.bundle
+backend/vendor/bundle
+
+**/.DS_Store
+**/*.log

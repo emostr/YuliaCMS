@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+# Prepares the database before the web server starts.
+#
+# Running migrations here rather than in a separate step is what makes updating
+# a single command: the installer pulls a new image, compose restarts the
+# container, and the schema catches up on the way up.
+
+if [ "${1}" = "./bin/rails" ] && [ "${2}" = "server" ]; then
+  ./bin/rails db:prepare
+fi
+
+exec "${@}"

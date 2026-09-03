@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="<%= @site.locale %>" data-theme="<%= @site.theme %>" data-accent="<%= @site.accent %>">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= page_title %></title>
+    <% if page_description.present? %>
+      <meta name="description" content="<%= page_description %>">
+    <% end %>
+
+    <link rel="canonical" href="<%= canonical_url %>">
+
+    <meta property="og:title" content="<%= page_title %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= canonical_url %>">
+    <% if @page&.seo_image.present? %>
+      <meta property="og:image" content="<%= @page.seo_image %>">
+    <% end %>
+
+    <link rel="stylesheet" href="/yulia/site.css">
+
+    <%#
+      htmx is loaded only when a block on this page uses it. A page of text and
+      images therefore ships no JavaScript whatsoever.
+    %>
+    <% if needs_htmx?(@blocks) %>
+      <meta name="htmx-config" content='{"defaultSwap":"innerHTML"}'>
+      <script src="/yulia/htmx.min.js" defer></script>
+    <% end %>
+
+    <%#
+      Svelte islands. The bootstrapper goes first - it finds the mount points and
+      hands each island its props - and then one bundle per island actually
+      placed on this page. A page without islands loads neither.
+    %>
+    <% if Array(@islands).any? %>
+      <script type="module" src="/yulia/islands.js" defer></script>
+      <% @islands.each do |island| %>
+        <script type="module" src="<%= island.asset_path %>" defer></script>
+      <% end %>
+    <% end %>
+  </head>
+
+  <body class="y-body">
+    <%= render "public/shared/header", site: @site %>
+
+    <main id="y-main" class="y-main">
+      <%= yield %>
+    </main>
+
+    <%= render "public/shared/footer", site: @site %>
+  </body>
+</html>

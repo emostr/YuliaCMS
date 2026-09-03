@@ -1,0 +1,70 @@
+# Caddyfile for a server. InstallYulia.rb selects it by writing
+# CADDYFILE=./caddy/Caddyfile into .env.
+#
+# Caddy obtains certificates on its own:
+#   - for the admin domain, at startup;
+#   - for site domains, on first request (on-demand TLS).
+#
+# That is what lets a user add a domain to a site without going back to the
+# server: pointing an A record here and typing the name into the admin is enough.
+
+{
+	email {$ACME_EMAIL}
+
+	on_demand_tls {
+		# Before ordering a certificate for a name it does not know, Caddy asks
+		# the application. Without this gate, anyone pointing a domain at this
+		# server could exhaust our Let's Encrypt rate limit.
+		ask http://app:3000/_yulia/tls/allow
+
+		# At most 10 new certificates per minute, to blunt a flood of requests
+		# for names that do not exist.
+		interval 1m
+		burst 10
+	}
+}
+
+# --- Admin panel -------------------------------------------------------------
+
+{$ADMIN_DOMAIN} {
+	encode zstd gzip
+
+	request_body {
+		max_size {$MAX_UPLOAD_MB:64}MB
+	}
+
+	log {
+		output file /data/log/admin.log
+	}
+
+	reverse_proxy app:3000 {
+		header_up Host {host}
+		header_up X-Forwarded-Host {host}
+	}
+}
+
+# --- User sites --------------------------------------------------------------
+#
+# Any name that did not match the block above. The certificate is fetched on
+# demand, provided the application confirms the domain is registered in the admin.
+
+https:// {
+	encode zstd gzip
+
+	tls {
+		on_demand
+	}
+
+	request_body {
+		max_size {$MAX_UPLOAD_MB:64}MB
+	}
+
+	log {
+		output file /data/log/sites.log
+	}
+
+	reverse_proxy app:3000 {
+		header_up Host {host}
+		header_up X-Forwarded-Host {host}
+	}
+}

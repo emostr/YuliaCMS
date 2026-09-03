@@ -1,0 +1,36 @@
+{%- comment -%}
+  The language switch keeps the reader on the same page: the Russian and English
+  trees mirror each other file for file, so only the first path segment changes.
+{%- endcomment -%}
+{% assign lang = page.lang | default: 'ru' %}
+{% assign slug = page.url | remove_first: '/ru/' | remove_first: '/en/' | remove: '/' %}
+
+<header class="top">
+  <a class="brand" href="{{ '/' | relative_url }}">Yulia</a>
+
+  <nav>
+    {% if lang == 'en' %}
+      <a href="{{ '/en/install/' | relative_url }}">Install</a>
+      <a href="{{ '/en/editor/' | relative_url }}">Editor</a>
+      <a href="{{ '/en/htmx/' | relative_url }}">htmx</a>
+      <a href="https://github.com/emostr/yulia">GitHub</a>
+    {% else %}
+      <a href="{{ '/ru/install/' | relative_url }}">Установка</a>
+      <a href="{{ '/ru/editor/' | relative_url }}">Редактор</a>
+      <a href="{{ '/ru/htmx/' | relative_url }}">htmx</a>
+      <a href="https://github.com/emostr/yulia">GitHub</a>
+    {% endif %}
+  </nav>
+
+  <span class="spacer"></span>
+
+  <div class="lang">
+    {% if slug == '' or slug == 'index' %}
+      <a class="{% if lang == 'ru' %}on{% endif %}" href="{{ '/' | relative_url }}">RU</a>
+      <a class="{% if lang == 'en' %}on{% endif %}" href="{{ '/en/' | relative_url }}">EN</a>
+    {% else %}
+      <a class="{% if lang == 'ru' %}on{% endif %}" href="{{ '/ru/' | append: slug | append: '/' | relative_url }}">RU</a>
+      <a class="{% if lang == 'en' %}on{% endif %}" href="{{ '/en/' | append: slug | append: '/' | relative_url }}">EN</a>
+    {% endif %}
+  </div>
+</header>

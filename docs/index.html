@@ -1,0 +1,173 @@
+---
+layout: home
+lang: ru
+title: Yulia CMS — сайт без программиста
+description: Простая CMS на Ruby, Svelte и htmx. Ставится одной командой на Debian, дальше сервер трогать не нужно.
+---
+
+<section class="hero">
+  <p class="eyebrow">Свободная CMS</p>
+  <h1>Сайт, который вы соберёте сами</h1>
+  <p class="lede">
+    Yulia — это WordPress, каким он мог бы быть сегодня: визуальный редактор, который понятен
+    без обучения, установка одной командой и сервер, на который больше не нужно возвращаться.
+  </p>
+
+  <div class="actions">
+    <a class="button button-solid" href="/yulia/ru/install/">Как поставить</a>
+    <a class="button button-outline" href="https://github.com/emostr/yulia">Исходный код</a>
+  </div>
+
+  <div class="command"><span class="prompt">$ </span>curl -fsSL https://raw.githubusercontent.com/emostr/yulia/main/InstallYulia.rb -o InstallYulia.rb
+<span class="prompt">$ </span>sudo ruby InstallYulia.rb</div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Что вы получаете</h2>
+    <p class="sub">
+      Не конструктор с сотней настроек, а короткий набор вещей, каждая из которых работает.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Визуальный редактор</h3>
+        <p>
+          Страница собирается из блоков: обложка, текст, галерея, форма. Блок настраивается
+          в панели справа, порядок меняется перетаскиванием.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Богатый текст с формулами</h3>
+        <p>
+          Заголовки, списки, цитаты, картинки — и LaTeX прямо в тексте, с предпросмотром и
+          сотней готовых заготовок.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Черновик и публикация</h3>
+        <p>
+          Посетитель всегда видит опубликованную версию. Правки живут отдельно, пока вы не
+          нажмёте «Опубликовать».
+        </p>
+      </div>
+      <div class="card">
+        <h3>Много сайтов на одном сервере</h3>
+        <p>
+          Второй сайт — это кнопка в админке, а не вторая установка. У каждого свой домен и
+          свой сертификат.
+        </p>
+      </div>
+      <div class="card">
+        <h3>HTTPS без вашего участия</h3>
+        <p>
+          Направьте домен на сервер и впишите его в админке. Сертификат Let's Encrypt
+          выпускается сам, при первом обращении.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Свои блоки, когда нужно</h3>
+        <p>
+          Готовых блоков не хватило — напишите свой на HTML с htmx или компонентом Svelte.
+          Прямо в админке, без доступа к серверу.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Как это происходит</h2>
+    <p class="sub">От пустого сервера до работающего сайта — четыре шага.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div>
+          <h3>Ставите Debian</h3>
+          <p>
+            Обычный образ у любого хостинг-провайдера. В документации расписано, что нажимать,
+            если вы делаете это впервые.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>Запускаете InstallYulia.rb</h3>
+          <p>
+            Скрипт спрашивает домен админки, проверяет его по DNS, ставит всё остальное сам
+            и показывает понятный интерфейс вместо потока команд.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>Заходите на свой домен</h3>
+          <p>
+            Придумываете логин и пароль, привязываете второй фактор — и попадаете в админку.
+            Больше на сервер возвращаться не нужно.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>Собираете сайт</h3>
+          <p>
+            Блоки, текст, картинки, домен. Кнопка «Опубликовать» — и сайт открыт для всех.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Почему сайт получается быстрым</h2>
+    <p class="sub">
+      Один путь рендеринга: страницу собирает сервер. Браузер получает готовый HTML.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Страница текста — ноль килобайт JavaScript</h3>
+        <p>
+          Скрипты подключаются только там, где они действительно нужны. Статья с картинками
+          не платит за фреймворк.
+        </p>
+      </div>
+      <div class="card">
+        <h3>htmx там, где нужен интерактив</h3>
+        <p>
+          Форма отправляется без перезагрузки страницы, а вы не написали ни строчки на
+          JavaScript. Если JavaScript отключён — форма всё равно работает.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Svelte островами</h3>
+        <p>
+          Нужен настоящий компонент — он собирается в отдельный остров и загружается только
+          на тех страницах, где стоит.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Из чего сделано</h2>
+    <p class="sub">Ничего экзотического: скучные, проверенные вещи последних версий.</p>
+
+    <div class="stack">
+      <span class="chip"><strong>Ruby 4.0</strong> + Rails 8.1</span>
+      <span class="chip"><strong>PostgreSQL 18</strong></span>
+      <span class="chip"><strong>Svelte 5</strong> + Vite 8</span>
+      <span class="chip"><strong>htmx 4</strong></span>
+      <span class="chip"><strong>Tailwind 4</strong></span>
+      <span class="chip"><strong>TipTap 3</strong> + KaTeX</span>
+      <span class="chip"><strong>Caddy 2</strong></span>
+      <span class="chip"><strong>Docker</strong></span>
+    </div>
+  </div>
+</section>

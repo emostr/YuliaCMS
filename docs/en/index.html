@@ -1,0 +1,174 @@
+---
+layout: home
+lang: en
+title: Yulia CMS — build the site yourself
+description: A small CMS built on Ruby, Svelte and htmx. One command installs it on Debian, and you never touch the server again.
+permalink: /en/
+---
+
+<section class="hero">
+  <p class="eyebrow">Free software</p>
+  <h1>The site you build yourself</h1>
+  <p class="lede">
+    Yulia is what WordPress might look like if it were written today: a visual editor that needs
+    no training, an install that takes one command, and a server you never have to go back to.
+  </p>
+
+  <div class="actions">
+    <a class="button button-solid" href="/yulia/en/install/">How to install</a>
+    <a class="button button-outline" href="https://github.com/emostr/yulia">Source code</a>
+  </div>
+
+  <div class="command"><span class="prompt">$ </span>curl -fsSL https://raw.githubusercontent.com/emostr/yulia/main/InstallYulia.rb -o InstallYulia.rb
+<span class="prompt">$ </span>sudo ruby InstallYulia.rb</div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>What you get</h2>
+    <p class="sub">
+      Not a builder with a hundred settings, but a short list of things that each work properly.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>A visual editor</h3>
+        <p>
+          Pages are built from blocks: a hero, some text, a gallery, a form. Each block is
+          configured in the panel beside it, and the order is changed by dragging.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Rich text with formulas</h3>
+        <p>
+          Headings, lists, quotes and images — plus LaTeX inline in the text, with a preview
+          and a hundred ready-made fragments.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Drafts and publishing</h3>
+        <p>
+          Visitors always see the published version. Edits live separately until you press
+          Publish.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Many sites, one server</h3>
+        <p>
+          A second site is a button in the admin panel, not a second installation. Each one has
+          its own domain and its own certificate.
+        </p>
+      </div>
+      <div class="card">
+        <h3>HTTPS without your help</h3>
+        <p>
+          Point a domain at the server and type it into the admin panel. The Let's Encrypt
+          certificate is obtained on the first request.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Your own blocks, when needed</h3>
+        <p>
+          When the built-in blocks are not enough, write one in HTML with htmx, or as a Svelte
+          component. From the admin panel, with no access to the server.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>How it goes</h2>
+    <p class="sub">From an empty server to a working site in four steps.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div>
+          <h3>Install Debian</h3>
+          <p>
+            The ordinary image any hosting provider offers. The documentation spells out what to
+            click if this is your first time.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>Run InstallYulia.rb</h3>
+          <p>
+            The script asks for the admin panel's domain, checks it against DNS, installs
+            everything else itself, and shows a readable screen instead of a wall of output.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>Open your domain</h3>
+          <p>
+            Choose a password, enrol a second factor, and you are in the admin panel. There is
+            no reason to return to the server after this.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div>
+          <h3>Build the site</h3>
+          <p>
+            Blocks, text, pictures, a domain. Press Publish and the site is open to everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Why the site comes out fast</h2>
+    <p class="sub">
+      One rendering path: the server assembles the page, and the browser receives finished HTML.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>A page of text ships no JavaScript</h3>
+        <p>
+          Scripts are loaded only where they are actually needed. An article with photographs
+          does not pay for a framework.
+        </p>
+      </div>
+      <div class="card">
+        <h3>htmx where interaction belongs</h3>
+        <p>
+          A form submits without reloading the page, and you wrote no JavaScript to get that.
+          With JavaScript switched off, the same form still works.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Svelte as islands</h3>
+        <p>
+          When a real component is called for, it is compiled into its own island and loaded
+          only on the pages that place it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>What it is made of</h2>
+    <p class="sub">Nothing exotic: boring, proven things, at their current versions.</p>
+
+    <div class="stack">
+      <span class="chip"><strong>Ruby 4.0</strong> + Rails 8.1</span>
+      <span class="chip"><strong>PostgreSQL 18</strong></span>
+      <span class="chip"><strong>Svelte 5</strong> + Vite 8</span>
+      <span class="chip"><strong>htmx 4</strong></span>
+      <span class="chip"><strong>Tailwind 4</strong></span>
+      <span class="chip"><strong>TipTap 3</strong> + KaTeX</span>
+      <span class="chip"><strong>Caddy 2</strong></span>
+      <span class="chip"><strong>Docker</strong></span>
+    </div>
+  </div>
+</section>

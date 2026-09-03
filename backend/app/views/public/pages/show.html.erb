@@ -1,0 +1,9 @@
+<% @blocks.each do |block| %>
+  <%= render_block(block) %>
+<% end %>
+
+<% if @blocks.blank? %>
+  <div class="y-empty">
+    <p><%= t("yulia.public.empty_page") %></p>
+  </div>
+<% end %>

@@ -1,0 +1,64 @@
+# Jekyll configuration for the Yulia CMS site.
+#
+# GitHub Pages builds this directory on every push, so the documentation is
+# written as Markdown and never has to be compiled by hand.
+
+title: Yulia CMS
+description: >-
+  Простая CMS, которую ставят одной командой и дальше не трогают сервер.
+  A small CMS you install with one command and then never touch the server again.
+
+url: https://emostr.github.io
+baseurl: /yulia
+
+# The landing pages carry their own markup; everything else uses the docs layout.
+defaults:
+  - scope:
+      path: "ru"
+    values:
+      layout: docs
+      lang: ru
+  - scope:
+      path: "en"
+    values:
+      layout: docs
+      lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  # Headings get anchors so a section can be linked to directly, which is what
+  # people do when helping each other.
+  auto_ids: true
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# The order pages appear in the sidebar. Kept here rather than in front matter
+# so the whole sequence can be seen and reordered in one place.
+nav:
+  ru:
+    - { page: install, title: "Установка" }
+    - { page: first-steps, title: "Первые шаги" }
+    - { page: editor, title: "Визуальный редактор" }
+    - { page: text, title: "Текст и формулы" }
+    - { page: blocks, title: "Свои блоки" }
+    - { page: htmx, title: "htmx: интерактив без JavaScript" }
+    - { page: svelte, title: "Блоки на Svelte" }
+    - { page: domains, title: "Домены и HTTPS" }
+    - { page: updating, title: "Обновление и резервные копии" }
+    - { page: troubleshooting, title: "Если что-то пошло не так" }
+  en:
+    - { page: install, title: "Installation" }
+    - { page: first-steps, title: "First steps" }
+    - { page: editor, title: "The visual editor" }
+    - { page: text, title: "Text and formulas" }
+    - { page: blocks, title: "Your own blocks" }
+    - { page: htmx, title: "htmx: interactivity without JavaScript" }
+    - { page: svelte, title: "Blocks in Svelte" }
+    - { page: domains, title: "Domains and HTTPS" }
+    - { page: updating, title: "Updating and backups" }
+    - { page: troubleshooting, title: "When something goes wrong" }

@@ -1,0 +1,23 @@
+<section class="y-hero y-align-{{ block.align | default: 'center' }}">
+  {%- if block.image != blank -%}
+    {%- comment -%}
+      The hero image is the largest thing above the fold, so it is the one
+      image on the page that must not be lazy-loaded.
+    {%- endcomment -%}
+    <img class="y-hero-image" src="{{ block.image | escape }}" alt="" fetchpriority="high" decoding="async">
+  {%- endif -%}
+  <div class="y-hero-body">
+    {%- if block.eyebrow != blank -%}
+      <p class="y-eyebrow">{{ block.eyebrow | escape }}</p>
+    {%- endif -%}
+    <h1 class="y-hero-title">{{ block.title | escape }}</h1>
+    {%- if block.subtitle != blank -%}
+      <p class="y-hero-subtitle">{{ block.subtitle | escape | newline_to_br }}</p>
+    {%- endif -%}
+    {%- if block.button_label != blank -%}
+      <a class="y-button y-button-solid" href="{{ block.button_href | default: '/' | escape }}">
+        {{- block.button_label | escape -}}
+      </a>
+    {%- endif -%}
+  </div>
+</section>

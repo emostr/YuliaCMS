@@ -1,0 +1,61 @@
+# Publishes the landing page and documentation to GitHub Pages.
+#
+# The site lives in docs/ and is built by Jekyll. Running the build here rather
+# than relying on the repository's Pages setting means the same result whatever
+# that setting happens to be, and a visible failure when a page is malformed.
+
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+# Pages deployment needs these; nothing else in the workflow writes anything.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# A push that lands while a deployment is running should supersede it, not
+# queue behind it - but a running deployment is allowed to finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+          working-directory: docs
+
+      - uses: actions/configure-pages@v5
+
+      - name: Build
+        working-directory: docs
+        run: bundle exec jekyll build --destination ../_site
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,17 @@
+<section class="y-features">
+  {%- if block.title != blank -%}
+    <h2 class="y-features-title">{{ block.title | escape }}</h2>
+  {%- endif -%}
+  {%- if block.items.size > 0 -%}
+    <div class="y-features-grid y-cols-{{ block.columns | default: '3' }}">
+      {%- for item in block.items -%}
+        <div class="y-feature">
+          <h3>{{ item.title | escape }}</h3>
+          {%- if item.text != blank -%}
+            <p>{{ item.text | escape | newline_to_br }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
